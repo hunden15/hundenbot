@@ -19,7 +19,6 @@ async def on_ready():
 async def on_message(message):
   serverf = "Online"
   servert = "Online"
-  psn = []
   if message.content.startswith("!도움말"):
     await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n!제작자 = 스넷봇 제작자의 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
   if message.content.startswith("닥쳐"):
@@ -46,10 +45,11 @@ async def on_message(message):
     embed.set_thumbnail(url=message.author.avatar_url)
     await client.send_message(message.channel, embed=embed)
   if message.content == "!파트너":
+    list = ['HUNDEN', '후야']
     await client.send_message(message.channel, "[스넷봇 파트너 시스템]\n!파트너 목록 = 파트너 목록을 확인합니다.")
   else:
     if message.content[5:7] == "목록":
-      await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n".join(psn))
+      await client.send_message(message.channel, "\n".join(list))
   if message.content.startswith("!제작자"):
     await client.send_message(message.channel, "[스넷봇 제작자의 정보]\n제작자 본명: 비공개\n제작자 닉네임: 헌덴[HUNDEN]\n제작자 나이: 16살[2020년도 기준]\n제작자 디스코드: HUNDEN#1422\n[ 제작자 사칭 주의하세요! ]")
   if message.content == "!서버":
