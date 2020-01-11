@@ -1,7 +1,6 @@
 import discord
 import os
 import datetime
-import openpyxl
 
 
 client = discord.Client()
