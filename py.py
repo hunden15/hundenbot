@@ -25,9 +25,6 @@ async def on_message(message):
     if message.author.id == "419810897058463754":
       member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
-    else:
-      member = discord.utils.get(client.get_all_members(), id=message.author.id)
-      await client.send_message(member, "[스넷봇] 당신은 이 명령어를 사용할 권한이 없습니다."
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
