@@ -25,6 +25,8 @@ async def on_message(message):
     if message.author.id == "419810897058463754":
       member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
+    else:
+      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
   if message.content.startswith("!서버"):
     await client.send_message(message.channel, "[ 서버 정보 ]\nSERVER-1 = [온라인]\nSERVER-2 = [오프라인]\n\n[!서버 접속 <서버이름>]")
   if message.content[4:7] == "접속":
