@@ -1,6 +1,5 @@
 import discord
 import os
-import datatime
 
 
 client = discord.Client()
@@ -44,14 +43,6 @@ async def on_message(message):
       await client.send_message(message_channel, "[ 스넷봇 사용중인 디스코드 서버목록 ]" + "\n".join(list))
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-  
-  if message.content.startswith("!현재시각"):
-    a = datatime.datatime.today().year
-    b = datatime.datatime.today().month
-    c = datatime.datatime.today().day
-    d = datatime.datatime.today().hour
-    e = datatime.datatime.today().minute
-    await client.send_message(message.channel, "현재 시각은 " + str(a) + "년 " + str(b) + "월 " + str(c) + "일 " + str(d) + "시 " + str(e) + "분 입니다.")
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
