@@ -40,7 +40,7 @@ async def on_message(message):
       list = []
       for server in client.servers:
         list.append(server.name)
-      await client.send_message(message_channel, "[ 스넷봇 사용중인 디스코드 서버목록 ]" + "\n".join(list))
+      await client.send_message(message_channel, "\n".join(list))
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
     
