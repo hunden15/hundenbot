@@ -33,7 +33,7 @@ async def on_message(message):
     author = message.guild.get_member(int(message.content[5:23]))
     role = discord.utils.get(message.guild.roles, name="뮤트")
     await author.remove_roles(role)
-                              await client.send_message(message.channel, "[스넷봇 뮤트 시스템] (" + message.author.name + ") 님이 (" + author + ") 의 아이디를 뮤트를 해제시켰습니다."
+    await client.send_message(message.channel, "[스넷봇 뮤트 시스템] (" + message.author.name + ") 님이 (" + author + ") 의 아이디를 뮤트를 해제시켰습니다."
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
