@@ -19,7 +19,7 @@ async def on_ready():
 async def on_message(message):
   serverf = "Online"
   servert = "Online"
-  patners = []
+  p = []
   if message.content.startswith("!도움말"):
     await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n!제작자 = 스넷봇 제작자의 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
   if message.content.startswith("닥쳐"):
@@ -49,13 +49,14 @@ async def on_message(message):
     await client.send_message(message.channel, "[스넷봇 파트너 시스템]\n!파트너 목록 = 파트너 목록을 확인합니다.\n!파트너 임명 <디스코드이름> = 해당유저를 스넷봇 공식 파트너로 임명합니다.\n!파트너 해지 <디스코드이름> = 해당유저를 스넷봇 공식 파트너를 해지합니다.")
   else:
     if message.content[5:7] == "목록":
-      await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n".join(patners))
+      await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n" + p)
     if message.content[5:7] == "임명":
       if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
-          patners.add(message.content[7:])
-          await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님이 (" + us + ")님을 파트너로 임명했습니다.")
+          uss = message.author.name
+          await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + uss + ")님이 (" + us + ")님을 파트너로 임명하셨습니다.")
+          p.append(message.content[7:])
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
       else:
@@ -64,8 +65,9 @@ async def on_message(message):
       if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
-          patners.remove(message.content[7:])
-          await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님이 (" + us + ")님을 파트너로 임명했습니다.")
+          uss = message.author.name
+          await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + uss + ")님이 (" + us + ")님을 파트너 해지시켰습니다.")
+          p.remove(message.content[7:])
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
       else:
