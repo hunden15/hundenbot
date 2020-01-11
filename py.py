@@ -1,5 +1,6 @@
 import discord
 import os
+import datatime
 
 
 client = discord.Client()
@@ -27,15 +28,30 @@ async def on_message(message):
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
+  if message.content.startswith("!채널메세지"):
+    if message.author.id == "419810897058463754":
+      channel = message.content[7:25]
+      msg = message.content[20:]
+      await client.get_channel(int(channel)).send("[스넷봇] 제작자 : " + msg)
+    else:
+      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
+    
   if message.content.startswith("!서버"):
-    await client.send_message(message.channel, "[ 서버 정보 ]\nSERVER-1 = [온라인]\nSERVER-2 = [오프라인]\n\n[!서버 접속 <서버이름>]")
-  else:
-    if message.content[4:7] == "접속":
-      if message.content[7:] == "SERVER-1":
-        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 SERVER-1에 접속하셨습니다.")
-      else:
-        if message.content[7:] == "SERVER-2":
-          await client.send_message(message.channel, "[스넷봇] 해당 서버는 오프라인 서버입니다.")
+    if message.author.id == "419810897058463754":
+      list = []
+      for server in client.servers:
+        list.append(server.name)
+      await client.send_message(message_channel, "[ 스넷봇 사용중인 디스코드 서버목록 ]" + "\n".join(list))
+    else:
+      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
+  
+  if message.content.startswith("!현재시각"):
+    a = datatime.datatime.today().year
+    b = datatime.datatime.today().month
+    c = datatime.datatime.today().day
+    d = datatime.datatime.today().hour
+    e = datatime.datatime.today().minute
+    await client.send_message(message.channel, "현재 시각은 " + str(a) + "년 " + str(b) + "월 " + str(c) + "일 " + str(d) + "시 " + str(e) + "분 입니다.")
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
