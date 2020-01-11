@@ -50,24 +50,24 @@ async def on_message(message):
   else:
     if message.content[5:7] == "목록":
       await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n".join[p])
-    if message.content[5:7] == "임명":
+    if message.content[5:8] == "임명":
       if message.author.id == "419810897058463754":
-        if message.content[7:]:
-          us = message.content[7:]
+        if message.content[8:]:
+          us = message.content[8:]
           uss = message.author.name
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + uss + ")님이 (" + us + ")님을 파트너로 임명하셨습니다.")
-          p.append(message.content[7:])
+          p.append(message.content[8:])
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
       else:
         await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님 당신은 해당 명령어를 사용할 권한이 없습니다.")
-    if message.content[5:7] == "해지":
+    if message.content[5:8] == "해지":
       if message.author.id == "419810897058463754":
-        if message.content[7:]:
-          us = message.content[7:]
+        if message.content[8:]:
+          us = message.content[8:]
           uss = message.author.name
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + uss + ")님이 (" + us + ")님을 파트너 해지시켰습니다.")
-          p.remove(message.content[7:])
+          p.remove(message.content[8:])
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
       else:
