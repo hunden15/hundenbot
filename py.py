@@ -41,8 +41,9 @@ async def on_message(message):
         member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
         days = message.content[23:]
         await client.ban[member, days]
+        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 (" + member + ")의 아이디를 정지시켰습니다. [" + days + "일]")
       else:
-        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 (" + member + ")의 아이디를 정지시켰습니다.")
+        await client.send_message(message.channel, "[스넷봇] 정지 해제 일수를 적으십시오.")
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
     
