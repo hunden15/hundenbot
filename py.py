@@ -47,6 +47,8 @@ async def on_message(message):
   if message.content.startswith("!제작자"):
     await client.send_message(message.channel, "[스넷봇 제작자의 정보]\n제작자 본명: 비공개\n제작자 닉네임: 헌덴[HUNDEN]\n제작자 나이: 16살[2020년도 기준]\n제작자 디스코드: HUNDEN#1422\n[ 제작자 사칭 주의하세요! ]")
   if message.content.startswith("!서버"):
+    await client.send_message(message.channel, "[스넷봇 서버 시스템]\n!서버 목록 = 스넷봇서버의 목록을 확인합니다.\n!서버 <서버이름> = 스넷봇서버를 접속합니다.")
+  else:
     if message.content[4:6] == "목록":
       await client.send_message(message.channel, "[스넷봇 서버 시스템]\n1. SERVER-1 :: (" + serverf + ")\n2. SERVER-2 :: (" + servert +")")
     if message.content[4:12] == "SERVER-1":
@@ -61,8 +63,6 @@ async def on_message(message):
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-  else:
-    await client.send_message(message.channel, "[스넷봇 서버 시스템]\n!서버 목록 = 스넷봇서버의 목록을 확인합니다.\n!서버 <서버이름> = 스넷봇서버를 접속합니다.")
         
     
 access_token = os.environ["BOT_TOKEN"]
