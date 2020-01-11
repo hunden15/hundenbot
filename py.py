@@ -16,7 +16,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-  if message.content.startswith("s!info"):
+  if message.content.startswith("!정보"):
     data = datatime.datatime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
     embed = discord.Embed(color=0x00ff00)
     embed.addfield(name="이름", value=message.author.name, inline=True)
