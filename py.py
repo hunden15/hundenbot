@@ -23,7 +23,7 @@ async def on_message(message):
     await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content)
   if message.content.startswith("!DM"):
     member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
-    await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:1])
+    await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
