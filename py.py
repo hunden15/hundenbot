@@ -1,6 +1,7 @@
 import discord
 import os
 import datetime
+import asyncio
 
 
 client = discord.Client()
@@ -16,6 +17,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+  serverf = "Online"
+  servert = "Offline"
   if message.content.startswith("!도움말"):
     await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n!제작자 = 스넷봇 제작자의 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
   if message.content.startswith("닥쳐"):
@@ -43,6 +46,31 @@ async def on_message(message):
     await client.send_message(message.channel, embed=embed)
   if message.content.startswith("!제작자"):
     await client.send_message(message.channel, "[스넷봇 제작자의 정보]\n제작자 본명: 비공개\n제작자 닉네임: 헌덴[HUNDEN]\n제작자 나이: 16살[2020년도 기준]\n제작자 디스코드: HUNDEN#1422\n[ 제작자 사칭 주의하세요! ]")
+  if message.content.startswith("!서버"):
+    if message.content[4:6] == "목록":
+      await client.send_message(message.channel, "[스넷봇 시스템] -> 서버 목록을 불러오는 중 입니다..."
+      await asyncio.sleep(3)
+      await client.send_message(message.channel, "[스넷봇 서버 시스템]\n1. SERVER-1 :: (온라인)\n2. SERVER-2 :: (오프라인)")
+      
+    if message.content[4:12] == "SERVER-1":
+      if serverf == "Online":
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] 스넷봇서버와 디스코드서버와 연결중 입니다...")
+        await asyncio.sleep(4)
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널1에 접속하셨습니다.")
+      
+      if serverf == "Offline":
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인 입니다.")
+      
+    if message.content[4:12] == "SERVER-2":
+      if serverf == "Online":
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] 스넷봇서버와 디스코드서버와 연결중 입니다...")
+        await asyncio.sleep(4)
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2에 접속하셨습니다.")
+      
+      if serverf == "Offline":
+        await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인 입니다.")
+  else:
+    await client.send_message(message.channel, "[스넷봇 서버 시스템]\n!서버 목록 = 서버 목록을 확인합니다.\n!서버 <서버이름> = 서버를 연결합니다.")
         
     
 access_token = os.environ["BOT_TOKEN"]
