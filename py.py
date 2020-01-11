@@ -54,7 +54,7 @@ async def on_message(message):
       if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
-          paters.append(message.content[7:])
+          patners.add(message.content[7:])
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님이 (" + us + ")님을 파트너로 임명했습니다.")
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
@@ -64,7 +64,7 @@ async def on_message(message):
       if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
-          paters.remove(message.content[7:])
+          patners.remove(message.content[7:])
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님이 (" + us + ")님을 파트너로 임명했습니다.")
         else:
           await client.send_message(message.channel, "[스넷봇 파트너 시스템] 임명할 유저의 닉네임을 적어주세요.")
