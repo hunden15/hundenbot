@@ -17,7 +17,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
   if message.content.startswith("!도움말"):
-    await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
+    await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]\n[ 스넷봇 제작자는 헌덴[HUNDEN]입니다.
   if message.content.startswith("닥쳐"):
     await client.send_message(message.channel, "[스넷봇] 닭을 왜 쳐!!!!!!!")
   if message.channel.is_private and message.author.id != "665460521050439710":
