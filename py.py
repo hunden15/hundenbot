@@ -27,8 +27,8 @@ async def on_message(message):
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-  if message.content.startswith("응 아니야"):
-    await client.send_message(message.channel, "[스넷봇] 응 너도 응 아니야")"
+  if message.content.startswith("응아니야"):
+    await client.send_message(message.channel, "[스넷봇] 응 너도 응 아니야")
   if message.content.startswith("반사"):
     await client.send_message(message.channel, "[스넷봇] 너 반에서 사랑하는 사람 있구나? ㅋㅋㅋㅋㅋㅋㅋ")
     
