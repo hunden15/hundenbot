@@ -42,26 +42,6 @@ async def on_message(message):
     embed.add_field(name="아이디", value=message.author.id, inline=True)
     embed.set_thumbnail(url=message.author.avatar_url)
     await client.send_message(message.channel, embed=embed)
-  if message.content.startswith(""):
-    file = openpyxl.load workbook("level.xlsx")
-    sheet = file.active
-    exp = [10, 20, 30, 40, 50]
-    i = 1
-    while True:
-      if sheet["A" + str(i)],value == str(message.author.id):
-        sheet["B" + str(i)].value = sheet["B" + str(i)].value + 5
-        if sheet["B" + str(i)].value >= exp[sheet["C" + str(i)].value]:
-          sheet["C" + str(i)].value = sheet["C" + str(i)].value + 1
-          await message.channel.send("레벨이 올랐습니다.\n현재 레벨 : " + str(sheet["C" + str(i)].value) + "\n경험치 : " + str(sheet["B" + str(i)].value))
-        file.save("level.xlsx")
-        break
-      
-      if sheet["A" + str(i)].value == None:
-        sheet["A" + str(i)].value = str(message.author.id)
-        sheet["B" + str(i)].value = 0
-        sheet["C" + str(i)].value = 1
-        file.save("level.xlsx")
-        break
         
     
 access_token = os.environ["BOT_TOKEN"]
