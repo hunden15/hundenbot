@@ -41,6 +41,8 @@ async def on_message(message):
     embed.add_field(name="아이디", value=message.author.id, inline=True)
     embed.set_thumbnail(url=message.author.avatar_url)
     await client.send_message(message.channel, embed=embed)
+  if message.content.startswith("!제작자"):
+    await client.send_message(message.channel, "[스넷봇 제작자의 정보]\n제작자 본명: 비공개\n제작자 닉네임: 헌덴[HUNDEN]\n제작자 나이: 16살[2020년도 기준]\n제작자 디스코드: HUNDEN#1422\n[ 제작자 사칭 주의하세요! ]")
         
     
 access_token = os.environ["BOT_TOKEN"]
