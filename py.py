@@ -20,7 +20,7 @@ async def on_message(message):
   serverf = "Online"
   servert = "Online"
   if message.content.startswith("!도움말"):
-    await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n!제작자 = 스넷봇 제작자의 정보를 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
+    await client.send_message(message.channel, "[도움말]\n!도움말 = 스넷봇 도움말을 확인합니다.\n!정보 = 나의 디스코드 정보를 확인합니다.\n!제작자 = 스넷봇 제작자의 정보를 확인합니다.\n!서버 = 서버 명령어에 대한 도움말을 확인합니다.\n!파트너 = 파트너 명령어에 대한 도움말을 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
   if message.content.startswith("닥쳐"):
     await client.send_message(message.channel, "[스넷봇] 닭을 왜 쳐!!!!!!!")
   if message.channel.is_private and message.author.id != "665460521050439710":
