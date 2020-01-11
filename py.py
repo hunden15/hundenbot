@@ -27,25 +27,10 @@ async def on_message(message):
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-  if message.content.startswith("!채널메세지"):
-    if message.author.id == "419810897058463754":
-      channel = message.content[7:25]
-      msg = message.content[20:]
-      await client.get_channel(int(channel)).send("[스넷봇] 제작자 : " + msg)
-    else:
-      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-    
-  if message.content.startswith("!정지"):
-    if message.author.id == "419810897058463754":
-      if message.content[23:]:
-        member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
-        days = message.content[23:]
-        await client.ban[member, days]
-        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 (" + member + ")의 아이디를 정지시켰습니다. [" + days + "일]")
-      else:
-        await client.send_message(message.channel, "[스넷봇] 정지 해제 일수를 적으십시오.")
-    else:
-      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
+  if message.content.startswith("응 아니야"):
+    await client.send_message(message.channel, "[스넷봇] 응 너도 응 아니야")"
+  if message.content.startswith("반사"):
+    await client.send_message(message.channel, "[스넷봇] 너 반에서 사랑하는 사람 있구나? ㅋㅋㅋㅋㅋㅋㅋ")
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
