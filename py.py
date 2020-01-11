@@ -49,7 +49,7 @@ async def on_message(message):
     await client.send_message(message.channel, "[스넷봇 파트너 시스템]\n!파트너 목록 = 파트너 목록을 확인합니다.\n!파트너 임명 <디스코드이름> = 해당유저를 스넷봇 공식 파트너로 임명합니다.\n!파트너 해지 <디스코드이름> = 해당유저를 스넷봇 공식 파트너를 해지합니다.")
   else:
     if message.content[5:7] == "목록":
-      await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n" + p)
+      await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n".join[p])
     if message.content[5:7] == "임명":
       if message.author.id == "419810897058463754":
         if message.content[7:]:
