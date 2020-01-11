@@ -17,7 +17,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
   if message.content.startswith("s!"):
-    await client.send_message(message.channel, "@everyone\n```안녕하세요.\n스넷봇 제작자 헌덴입니다.\n스넷봇은 현재 베타입니다.\n스넷봇을 사용해주셔서 감사드립니다.\n\nMade by. HUNDEN#1422\n\n스넷봇 도움말:\n1. s! -> 스넷봇 도움말을 확인합니다.\n2. s!정보 <유저닉네임> -> <유저닉네임>의 정보를 확인합니다.```")
+    await client.send_message(message.channel, "\n```안녕하세요.\n스넷봇 제작자 헌덴입니다.\n스넷봇은 현재 베타입니다.\n스넷봇을 사용해주셔서 감사드립니다.\n\nMade by. HUNDEN#1422\n\n스넷봇 도움말:\n1. s! -> 스넷봇 도움말을 확인합니다.\n2. s!정보 <유저닉네임> -> <유저닉네임>의 정보를 확인합니다.```")
   if message.content.startswith("s!정보"):
     data = datatime.datatime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
     embed = discord.Embed(color=0x00ff00)
