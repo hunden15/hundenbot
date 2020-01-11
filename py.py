@@ -51,7 +51,7 @@ async def on_message(message):
     if message.content[5:7] == "목록":
       await client.send_message(message.channel, "[스넷봇 파트너 시스템]" + "\n".join(patners))
     if message.content[5:7] == "임명":
-      if message.author.id == "665460521050439710":
+      if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
           paters.append(message.content[7:])
@@ -61,7 +61,7 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, "[스넷봇 파트너 시스템] (" + message.author.name + ")님 당신은 해당 명령어를 사용할 권한이 없습니다.")
     if message.content[5:7] == "해지":
-      if message.author.id == "665460521050439710":
+      if message.author.id == "419810897058463754":
         if message.content[7:]:
           us = message.content[7:]
           paters.remove(message.content[7:])
