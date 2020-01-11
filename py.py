@@ -29,11 +29,13 @@ async def on_message(message):
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
   if message.content.startswith("!서버"):
     await client.send_message(message.channel, "[ 서버 정보 ]\nSERVER-1 = [온라인]\nSERVER-2 = [오프라인]\n\n[!서버 접속 <서버이름>]")
-  if message.content[4:7] == "접속":
-    if message.content[7:] == "SERVER-1":
-      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 SERVER-1에 접속하셨습니다.")
-    if message.content[7:] == "SERVER-2":
-      await client.send_message(message.channel, "[스넷봇] 해당 서버는 오프라인 서버입니다.")
+  else:
+    if message.content[4:7] == "접속":
+      if message.content[7:] == "SERVER-1":
+        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 SERVER-1에 접속하셨습니다.")
+      else:
+        if message.content[7:] == "SERVER-2":
+          await client.send_message(message.channel, "[스넷봇] 해당 서버는 오프라인 서버입니다.")
     
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
