@@ -35,12 +35,14 @@ async def on_message(message):
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
     
-  if message.content.startswith("!서버"):
+  if message.content.startswith("!정지"):
     if message.author.id == "419810897058463754":
-      list = []
-      for server in client.servers:
-        list.append(server.name)
-      await client.send_message(message_channel, "\n".join(list))
+      if message.content[23:]:
+        member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
+        days = message.content[23:]
+        await client.ban[member, days]
+      else:
+        await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님이 (" + member + ")의 아이디를 정지시켰습니다.")
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
     
