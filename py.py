@@ -70,6 +70,7 @@ async def on_message(message):
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
   if "시발" in message.content or "병신" in message.content:
+    author = message.guild.get_member(int(message.author.id))
     await client.send_message(message.channel, "[스넷봇 욕설감지 시스템] (" + message.author + ")님이 욕설을 사용하셨습니다. [감지!]")
     await message.guild.ban(author, 7)
     
