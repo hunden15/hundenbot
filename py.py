@@ -2,8 +2,6 @@ import discord
 import os
 import datetime
 import asyncio
-from json import loads
-from captcha.image import ImageCaptcha
 import random
 
 
