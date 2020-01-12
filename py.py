@@ -75,7 +75,7 @@ async def on_message(message):
   if message.content.startswith("!인증"):
     Image_captcha = IamageCaptcha()
     a = ""
-    fori in range(6):
+    for i in range(6):
       a += str(random.randint(0, 9))
       
     name = str(message.author.id) + ".png"
