@@ -77,11 +77,8 @@ async def on_message(message):
     a = ""
     for i in range(6):
       a += str(random.randint(0, 9))
-      
-    name = str(message.author.id) + ".png"
-    Image_captcha.write(a, name)
     
-    await message.channel.send(file=discord.File(name))
+    await message.channel.send("Code : " + a)
     def check(msg):
       return msg.author == message.author and msg.channel == message.channel
 
