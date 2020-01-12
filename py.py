@@ -69,7 +69,7 @@ async def on_message(message):
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-  if "시발" in message.content and "병신" in message.content:
+  if "시발" in message.content or "병신" in message.content:
     file = openpyxl.load_workbook("경고.xlsx")
     sheet = file.active
     for i in range(1, 31):
