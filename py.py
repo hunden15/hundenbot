@@ -70,23 +70,8 @@ async def on_message(message):
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
   if "시발" in message.content or "병신" in message.content:
-    file = openpyxl.load_workbook("경고.xlsx")
-    sheet = file.active
-    for i in range(1, 31):
-      if str(sheet["A" + str(i)].value) == str(message.author.id):
-        sheet["B" + str(i)].value = int(sheet["B" + str(i)].value) + 1
-        if int(sheet["B" + str(i)].value] == 5:
-          await client.send_message(message.channel, "[스넷봇 자동벤 시스템] (" + message.author.name + ")님이 경고 총 누적 5회로 자동 벤이 되셨습니다.")
-          await client.ban(message.author, 7)
-        break
-      if str(sheet["A" + str(i)].value) == "-":
-        sheet["A" + str(i)].value = str(message.author.id)
-        sheet["B" + str(i)].value = 1
-        break
-    file.save("경고.xlsx")
-    await client.send_message(message.channel, "[스넷봇 경고 시스템] (" + message.author.name + ")님이 욕설을 사용하셔서 경고를 받으셨습니다.\n[스넷봇 경고 시스템] 5회 누적시 자동벤이 됩니다.")
-    
-    
+    await client.send_message(message.channel, "[스넷봇 욕설감지 시스템] (" + message.author + ")님이 욕설을 사용하셨습니다. [감지!]")
+    await client.kick(message.author)
     
     
     
