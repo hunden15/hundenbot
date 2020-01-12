@@ -73,20 +73,18 @@ async def on_message(message):
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
   if message.content.startswith("!인증"):
-    if message.channel.id == "665816196519559168":
-      Image_captcha = IamageCaptcha()
-      a = ""
-      fori in range(6):
-        a += str(random.randint(0, 9))
+    Image_captcha = IamageCaptcha()
+    a = ""
+    fori in range(6):
+      a += str(random.randint(0, 9))
       
-      name = str(message.author.id) + ".png"
-      Image_captcha.write(a, name)
+    name = str(message.author.id) + ".png"
+    Image_captcha.write(a, name)
     
-      await message.channel.send(file=discord.File(name))
-      def check(msg):
-        return msg.author == message.author and msg.channel == message.channel
-    else:
-      await message.channel.send("[스넷봇 인증 시스템] 해당 채널에서는 사용하실 수 없습니다.")
+    await message.channel.send(file=discord.File(name))
+    def check(msg):
+      return msg.author == message.author and msg.channel == message.channel
+
     
     
     try:
