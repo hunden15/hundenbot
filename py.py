@@ -72,33 +72,6 @@ async def on_message(message):
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-  if message.content.startswith("!인증"):
-    Image_captcha = IamageCaptcha()
-    a = ""
-    for i in range(6):
-      a += str(random.randint(0, 9))
-    
-    await message.channel.send("Code : " + a)
-    def check(msg):
-      return msg.author == message.author and msg.channel == message.channel
-
-    
-    
-    try:
-      msg = await client.wait_for("message", timeout=10, check=check)
-    except:
-      await message.channel.send("[스넷봇 인증 시스템] 시간초과입니다.")
-      return
-    
-    
-    if msg.content == a:
-      await message.channel.send("[스넷봇 인증 시스템] 정답입니다.")
-      await message.channel.send("[스넷봇 인증 시스템] You are rank is 비회원")
-      author = message.guild.get_member(int(message.author.id))
-      role = discord.utils.get(message.guild.roles, name="비회원")
-      await author.add_roles(role)
-    else:
-      await message.channel.send("[스넷봇 인증 시스템] [스넷봇 인증 시스템] 오답입니다.")
     
     
     
