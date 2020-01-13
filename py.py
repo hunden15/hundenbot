@@ -72,6 +72,7 @@ async def on_message(message):
     embed = discord.Embed(color=0xE67E22)
     embed.add_field(name="스넷봇 공지사항", value=file.read(), inline=True)
     await client.send_message(message.channel, embed=embed)
+    file.close()
   if message.content.startswitch("&역할설정"):
     if message.author.id == "419810897058463754":
       role = ""
