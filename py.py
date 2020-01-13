@@ -20,10 +20,6 @@ async def on_ready():
 async def on_message(message):
   serverf = "Online"
   servert = "Online"
-  if message.content.startswith("&도움말"):
-    await client.send_message(message.channel, "[도움말]\n&도움말 = 스넷봇 도움말을 확인합니다.\n&정보 = 나의 디스코드 정보를 확인합니다.\n&제작자 = 스넷봇 제작자의 정보를 확인합니다.\n&서버 = 서버 명령어에 대한 도움말을 확인합니다.\n&파트너 = 파트너 명령어에 대한 도움말을 확인합니다.\n\n[ 문의는 디스코드봇 1대1채팅으로 해주세요. ]")
-  if message.content.startswith("닥쳐"):
-    await client.send_message(message.channel, "[스넷봇] 닭을 왜 쳐!!!!!!!")
   if message.channel.is_private and message.author.id != "665460521050439710":
     await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content)
   if message.content.startswith("&DM"):
@@ -32,11 +28,7 @@ async def on_message(message):
       await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
     else:
       await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-  if message.content.startswith("응아니야"):
-    await client.send_message(message.channel, "[스넷봇] 응 너도 응 아니야")
-  if message.content.startswith("반사"):
-    await client.send_message(message.channel, "[스넷봇] 너 반에서 사랑하는 사람 있구나? ㅋㅋㅋㅋㅋㅋㅋ")
-  if message.content.startswith("&정보"):
+  if message.content.startswith("&내정보"):
     date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
     embed = discord.Embed(color=0x00ff00)
     embed.add_field(name="이름", value=message.author.name, inline=True)
@@ -70,6 +62,10 @@ async def on_message(message):
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
+  if message.content == "&도움말":
+    embed = discord.Embed(color=0xE67E22)
+    embed.add_field(name="스넷봇 도움말", value="&도움말 - 스넷봇 도움말을 확인합니다.\n&내정보 - 당신의 디스코드 정보를 확인합니다.\n&서버 - 서버 시스템에 대한 도움말을 확인합니다.\n&제작자 - 스넷봇 제작자를 확인합니다.\n&파트너 - 파트너 시스템에 대한 정보를 확인합니다.\n!!문의는 디스코드봇 1대1 채팅해주세요.!!", inline=True)
+    await client.send_message(message.channel, embed=embed)
           
     
     
