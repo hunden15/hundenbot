@@ -64,40 +64,12 @@ async def on_message(message):
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널1에 접속하셨습니다.")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-      if message.content[13:2] == "on":
-        if message.author.id == "419810897058463754":
-          if serverf == "Offline":
-            serverf = "Online"
-            await client.send_message(message.channel, "[스넷봇 서버 시스템] 서버가 켜졌습니다.")
-        else:
-          await client.send_message(message.channel, "[스넷봇 서버 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.")
-      if message.content[13:3] == "off":
-        if message.author.id == "419810897058463754":
-          if serverf == "Online":
-            serverf = "Offline"
-            await client.send_message(message.channel, "[스넷봇 서버 시스템] 서버가 꺼졌습니다.")
-        else:
-          await client.send_message(message.channel, "[스넷봇 서버 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.")
     if message.content[4:12] == "SERVER-2":
       if serverf == "Online":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 스넷봇서버와 디스코드서버를 연결중 입니다...")
         await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
       if serverf == "Offline":
         await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-      if message.content[13:2] == "on":
-        if message.author.id == "419810897058463754":
-          if serverf == "Offline":
-            serverf = "Online"
-            await client.send_message(message.channel, "[스넷봇 서버 시스템] 서버가 켜졌습니다.")
-        else:
-          await client.send_message(message.channel, "[스넷봇 서버 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.")
-      if message.content[13:3] == "off":
-        if message.author.id == "419810897058463754":
-          if serverf == "Online":
-            serverf = "Offline"
-            await client.send_message(message.channel, "[스넷봇 서버 시스템] 서버가 꺼졌습니다.")
-        else:
-          await client.send_message(message.channel, "[스넷봇 서버 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.")
           
     
     
