@@ -68,8 +68,9 @@ async def on_message(message):
     await client.send_message(message.channel, embed=embed)
   if message.content == "&공지":
     if message.author.id == "419810897058463754":
+      file = open("도움말.txt")
       embed = discord.Embed(color=0xE67E22)
-      embed.add_field(name="스넷봇 공지사항", value="스넷봇을 사용해주셔서 감사드립니다.\n현재 스넷봇 도움말 GUI가 업데이트 되었습니다.\n스넷봇을 사용해주셔서 감사드립니다.\n - Made by HUNDEN#1422", inline=True)
+      embed.add_field(name="스넷봇 공지사항", value=file.read(), inline=True)
       await client.send_message(message.channel, embed=embed)
   if message.content.startswitch("&역할설정"):
     if message.author.id == "419810897058463754":
