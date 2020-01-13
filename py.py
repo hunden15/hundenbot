@@ -66,8 +66,23 @@ async def on_message(message):
     embed = discord.Embed(color=0xE67E22)
     embed.add_field(name="스넷봇 도움말", value="&도움말 - 스넷봇 도움말을 확인합니다.\n&내정보 - 당신의 디스코드 정보를 확인합니다.\n&서버 - 서버 시스템에 대한 도움말을 확인합니다.\n&제작자 - 스넷봇 제작자를 확인합니다.\n&파트너 - 파트너 시스템에 대한 정보를 확인합니다.\n!!문의는 디스코드봇 1대1 채팅해주세요.!!", inline=True)
     await client.send_message(message.channel, embed=embed)
-          
-    
+  if message.content == "&공지":
+    if message.author.id == "419810897058463754":
+      embed = discord.Embed(color=0xE67E22)
+      embed.add_field(name="스넷봇 공지사항", value="스넷봇을 사용해주셔서 감사드립니다.\n현재 스넷봇 도움말 GUI가 업데이트 되었습니다.\n스넷봇을 사용해주셔서 감사드립니다.\n - Made by HUNDEN#1422", inline=True)
+      await client.send_message(message.channel, embed=embed)
+  if message.content.startswitch("&역할설정"):
+    if message.author.id == "419810897058463754":
+      role = ""
+      rolename = message.content.split(" ")
+      member = discord.utils.get(client.get_all_members(), id=rolename[1])
+      for i in message.server.roles:
+        if i.name == rolename[2]:
+          role = i
+          break
+      await client.add_roles(member, role)
+    else:
+      await client.send_message(message.channel, "[스넷봇 관리자] 당신은 이 명령어를 사용할 권한이 없습니다.")
     
     
     
