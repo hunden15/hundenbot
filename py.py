@@ -19,7 +19,7 @@ async def on_ready():
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
   if message.content == "=":
-    await client.send_message(message.channel, SN + " 기본 명령어: =help")
+    await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
     if message.content[1:4] == "help":
       embed = discord.Embed(color=0x0028ff)
@@ -28,15 +28,15 @@ async def on_message(message):
     if message.content[1:3] == "dm":
       if message.author.id == "419810897058463754":
         member = discord.utils.get(client.get_all_members(), id=message.content[3:19])
-        await client.send_message(member, SN + " 제작자 : " + message.content[20:])
+        await client.send_message(member, SN + " 제작자 : " + message.content[20:] + "`")
       else:
-        await client.send_message(message.channel, SN + " [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
+        await client.send_message(message.channel, SN + "" + message.author.mention + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
     if message.content[1:7] == "contact":
       if message.content[8:]:
         if message.channel.is_private and message.author.id != "665768509707518033":
           await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content[8:])
       else:
-        await client.send_message(message.channel, SN + " 제작자에게 문의 보낼 메세지를 적어주세요.")
+        await client.send_message(message.channel, SN + " 제작자에게 문의 보낼 메세지를 적어주세요.`")
         
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
