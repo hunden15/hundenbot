@@ -20,7 +20,7 @@ async def on_message(message):
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
-    if message.content[1:4] == "help":
+    if message.content[1:5] == "help":
       embed = discord.Embed(color=0x0028ff)
       embed.add_field(name="[스넷봇 도움말 시스템]", value="=help :: 도움말 확인을 합니다.\n=info :: 나의 정보를 확인합니다.\n=contact :: 제작자에게 문의를 합니다.[봇 갠디코로만 가능]", inline=True)
       await client.send_message(message.channel, embed=embed)
@@ -29,8 +29,8 @@ async def on_message(message):
         member = discord.utils.get(client.get_all_members(), id=message.content[3:19])
         await client.send_message(member, SN + " 제작자 : " + message.content[20:] + "`")
       else:
-        await client.send_message(message.channel, SN + "" + message.author.mention + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
-    if message.content[1:7] == "contact":
+        await client.send_message(message.channel, SN + "" + message.author.name + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
+    if message.content[1:8] == "contact":
       if message.content[8:]:
         if message.channel.is_private and message.author.id != "665768509707518033":
           await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content[8:])
