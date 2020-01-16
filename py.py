@@ -1,92 +1,70 @@
 import discord
-import os
-import datetime
-import asyncio
-import random
+from discord.ext import commands
 
-
-client = discord.Client()
-
+client = commands.Bot(command_prefix = '=')
 
 @client.event
 async def on_ready():
-  print("login")
-  print(client.user.name)
-  print(client.user.id)
-  print("------------------")
-  await client.change_presence(game=discord.Game(name='', type=1))
+  print('Online')
 
-@client.event
-async def on_message(message):
-  serverf = "Online"
-  servert = "Online"
-  if message.channel.is_private and message.author.id != "665460521050439710":
-    await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content)
-  if message.content.startswith("&DM"):
-    if message.author.id == "419810897058463754":
-      member = discord.utils.get(client.get_all_members(), id=message.content[4:22])
-      await client.send_message(member, "[스넷봇] 제작자 답변 : " + message.content[23:])
-    else:
-      await client.send_message(message.channel, "[스넷봇] [ " + message.author.name + " ] 님 당신은 이 명령어를 사용할 권한이 없습니다.")
-  if message.content.startswith("&내정보"):
-    date = datetime.datetime.utcfromtimestamp(((int(message.author.id) >> 22) + 1420070400000) / 1000)
-    embed = discord.Embed(color=0x00ff00)
-    embed.add_field(name="이름", value=message.author.name, inline=True)
-    embed.add_field(name="서버닉네임", value=message.author.display_name, inline=True)
-    embed.add_field(name="가입일", value=str(date.year) + "년 " + str(date.month) + "월 " + str(date.day) + "일", inline=True)
-    embed.add_field(name="아이디", value=message.author.id, inline=True)
-    embed.set_thumbnail(url=message.author.avatar_url)
-    await client.send_message(message.channel, embed=embed)
-  if message.content == "&파트너":
-    await client.send_message(message.channel, "[스넷봇 파트너 시스템]\n!파트너 목록 = 파트너 목록을 확인합니다.")
-  else:
-    if message.content[5:7] == "목록":
-      list = ['HUNDEN', '후야']
-      await client.send_message(message.channel, "\n".join(list))
-  if message.content.startswith("&제작자"):
-    await client.send_message(message.channel, "[스넷봇 제작자의 정보]\n제작자 본명: 비공개\n제작자 닉네임: 헌덴[HUNDEN]\n제작자 나이: 16살[2020년도 기준]\n제작자 디스코드: HUNDEN#1422\n[ 제작자 사칭 주의하세요! ]")
-  if message.content == "&서버":
-    await client.send_message(message.channel, "[스넷봇 서버 시스템]\n!서버 목록 = 스넷봇서버의 목록을 확인합니다.\n!서버 <서버이름> = 스넷봇서버를 접속합니다.")
-  else:
-    if message.content[4:6] == "목록":
-      await client.send_message(message.channel, "[스넷봇 서버 시스템]\n1. SERVER-1 :: (" + serverf + ")\n2. SERVER-2 :: (" + servert +")")
-    if message.content[4:12] == "SERVER-1":
-      if serverf == "Online":
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] 스넷봇서버와 디스코드서버를 연결중 입니다...")
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널1에 접속하셨습니다.")
-      if serverf == "Offline":
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-    if message.content[4:12] == "SERVER-2":
-      if serverf == "Online":
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] 스넷봇서버와 디스코드서버를 연결중 입니다...")
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] (" + message.author.name + ")님이 서버채널2와 연결 도중 오류가 발생하였습니다.\n[스넷봇 서버 시스템] 스넷봇 제작자에게 문의 코드를 보내십시오. `XEHZ02`,`EXAW821`")
-      if serverf == "Offline":
-        await client.send_message(message.channel, "[스넷봇 서버 시스템] 해당 서버는 오프라인서버 입니다.")
-  if message.content == "&도움말":
-    file = open("도움말.txt")
-    embed = discord.Embed(color=0xE67E22)
-    embed.add_field(name="스넷봇 도움말", value="&도움말 - 스넷봇 도움말을 확인합니다.\n&내정보 - 당신의 디스코드 정보를 확인합니다.\n&서버 - 서버 시스템에 대한 도움말을 확인합니다.\n&제작자 - 스넷봇 제작자를 확인합니다.\n&파트너 - 파트너 시스템에 대한 정보를 확인합니다.\n!!문의는 디스코드봇 1대1 채팅해주세요.!!", inline=True)
-    await client.send_message(message.channel, embed=embed)
-  if message.content == "&공지":
-    file = open("공지.txt")
-    embed = discord.Embed(color=0xE67E22)
-    embed.add_field(name="스넷봇 공지사항", value=file.read(), inline=True)
-    await client.send_message(message.channel, embed=embed)
-    file.close()
-  if message.content.startswitch("&역할설정"):
-    if message.author.id == "419810897058463754":
-      role = ""
-      rolename = message.content.split(" ")
-      member = discord.utils.get(client.get_all_members(), id=rolename[1])
-      for i in message.server.roles:
-        if i.name == rolename[2]:
-          role = i
-          break
-      await client.add_roles(member, role)
-    else:
-      await client.send_message(message.channel, "[스넷봇 관리자] 당신은 이 명령어를 사용할 권한이 없습니다.")
+@client.command()
+@commands.has_permission(manage_messages=True)
+async def clear(ctx, amount=3):
+  await ctx.channel.purge(limit=amount)
+
+@client.command()
+async def kick(ctx, member : discord.Member, *, reason=None):
+  await member.kick(reason=reason)
+  await ctx.send(f'Kicked {member.mention}')
+
+@client.command()
+async def ban(ctx, member : discord.Member, *, reason=None):
+  await member.ban(reason=reason)
+  await ctx.send(f' Banned (member.mention}')
+
+@client.command()
+async def unban(ctx, *, member):
+  banned_users = await ctx.guild.bans()
+  member_name, member_discriminator = member.split('#')
+  
+  for ban_entry in banned_users:
+    user = ban_entry.user
     
+    if (user.name, user.discriminator) == (member_name, member_discriminator):
+      await ctx.guild.unban(user)
+      await ctx.send(f' Unbanned {user.mention}')
+      return
+@client.command()
+async def mute(ctx, member : discord.Member):
+  guild = ctx.guild
+  
+  for role in guild.roles:
+    if role.name == "Muted":
+      await member.add_roles(role)
+      await ctx.send("{} has {} has been muted" .format(member.mention,ctx.author.mention))
+      return
     
-    
+      overwrite = discord.PermissionsOverwrite(send_messages=False)
+      newRole = await guild.create_role(name="Muted")
+      
+      for channel in guild.text_channels:
+        await channel.set_permissions(newRole,overwrite=overwrite)
+        
+      await member.add_roles(newRole)
+      await ctx.send("{} has {} has been muted" .format(member.mention,ctx.author.mention))
+      
+      
+@client.command()
+async def unmute(ctx, member : discord.Member):
+  guild = ctx.guild
+  
+  for role in guild.roles:
+    if role.name == "Muted":
+      await member.remove_roles(role)
+      await ctx.send("{} has {} has been unmuted" .format(member.mention,ctx.author.mention))
+      return
+
+
+
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
