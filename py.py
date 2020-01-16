@@ -38,7 +38,7 @@ async def on_message(message):
         await client.send_message(message.channel, SN + " 제작자에게 문의 보낼 메세지를 적어주세요.`")
     if message.content[1:6] == "clear":
       if message.author.id == "419810897058463754":
-        await send_message(message.channel, limit=amount)
+        await send_message(message.channel, limit=message.content[6:])
       else:
         await send_message(message.channel, SN + " " + message.author.name + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
         
