@@ -29,7 +29,7 @@ async def on_message(message):
         member = discord.utils.get(client.get_all_members(), id=message.content[3:19])
         await client.send_message(member, SN + " 제작자 : " + message.content[20:] + "`")
       else:
-        await client.send_message(message.channel, SN + "" + message.author.name + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
+        await client.send_message(message.channel, SN + " " + message.author.name + "님 당신은 이 명령어를 사용할 권한이 없습니다.`")
     if message.content[1:8] == "contact":
       if message.content[8:]:
         if message.channel.is_private and message.author.id != "665768509707518033":
