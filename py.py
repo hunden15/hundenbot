@@ -17,7 +17,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
-    
+  coins[message.author.id] = 1000
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
@@ -39,6 +39,24 @@ async def on_message(message):
       serverf = "Online"
       servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
+    if message.content[1:5] == "packs":
+      await client.send_message(message.channel, "```[스넷봇 특별팩 판매]\n[VIP] :: 스넷봇 공식 VIP랭크\n[MVP] :: 스넷봇 공식 MVP랭크\n[MVP+] :: 스넷봇 공식 MVP+랭크```")
+    else:
+      if message.content[5:8] == "buy":
+        await client.send_message(message.channel, "```[스넷봇 특별팩 판매] =packs buy <pack name>```")
+      else:
+        if message.content[9:18] == "special":
+          if coins[message.author.id] >= 500:
+            await client.send_message(message.channel, "[스넷봇 특별팩 판매] 서버와 연결도중 오류가 발생하여, 구입이 실패되었습니다.")
+          else:
+            await client.send_message(message.channel, "[스넷봇 특별팩 판매] 코인이 부족합니다.")
+    if message.content[1:5] == "coin":
+      await client.send_message(message.channel, "[스넷봇 코인 시스템]\n=coin :: 코인 도움말을 확인\n=coin ces :: 당신의 코인을 확인")
+    else:
+      if message.content[5:9] == "ces":
+        mycoin = coins[message.author.id]
+        await client.send_message(message.channel, "[스넷봇 코인 시스템] 당신이 보유중인 코인은 " + mycoin + "코인 입니다.")
+          
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 헌덴님!")
