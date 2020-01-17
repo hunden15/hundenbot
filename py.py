@@ -1,7 +1,6 @@
 import discord
 import os
 import datetime
-import json
 
 
 client = discord.Client()
@@ -75,20 +74,6 @@ async def on_message(message):
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 헌덴님!")
-      if message.author.id == "421291279939403788":
-        await client.send_message(message.channel, "안녕하세요! 유튜버 후야님!")
-        if message.author.id == "545485943415635969":
-          await client.send_message(message.channel, "안녕하세요! 유튜버 초루하르시님!")
-          if message.author.id == "400509470003953664":
-            await client.send_message(message.channel, "안녕하세요! 유튜버 카울님!")
-            if message.author.id == "377423308628557825":
-              await client.send_message(message.channel, "안녕하세요! 유튜버 침대종현님!")
-              if message.author.id == "409699052456771606":
-                await client.send_message(message.channel, "안녕하세요! 유튜버 후돌이프론님!")
-                if message.author.id == "505609869772980234":
-                  await client.send_message(message.channel, "안녕하세요! 유튜버 YEOMDDA님!")
-                  if message.author.id == "618778311291830292":
-                    await client.send_message(message.channel, "안녕하세요! 부개발자 큐브님!")
     else:
       await client.send_message(message.channel, "안녕하세요! " + message.author.name + "님!")
       
