@@ -41,7 +41,7 @@ async def on_message(message):
     if message.content[1:7] == "server":
       serverf = "Online"
       servert = "Online"
-      await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "")
+      await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
       
         
 access_token = os.environ["BOT_TOKEN"]
