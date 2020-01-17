@@ -38,7 +38,7 @@ async def on_message(message):
           await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content[8:])
       else:
         await client.send_message(message.channel, SN + " 제작자에게 문의 보낼 메세지를 적어주세요.`")
-    if message.content[1:6] == "server":
+    if message.content[1:7] == "server":
       serverf = "Online"
       servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "")
