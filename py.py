@@ -17,7 +17,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
-  patners = []
     
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
@@ -44,25 +43,8 @@ async def on_message(message):
       await client.send_message(message.channel, "```[스넷봇 파트너 시스템]\n=patner :: 파트너시스템 도움말을 확인\n=patner list :: 파트너를 확인합니다.\n=patner apply :: 파트너를 신청합니다.[디코봇 1대1로]```")
     else:
       if message.content[7:12] == "list":
+        patners = []
         await client.send_message(message.channel, "```[스넷봇 파트너 시스템]" + "\n".join(patners)."```")
-      if message.content[7:11] == "add":
-        if message.author.id == "419810897058463754":
-          if message.content[11:]:
-            await client.send_message(message.channel, "```[스넷봇 파트너 시스템] " + message.content[11:] + "님이 파트너목록에 추가되었습니다.```")
-            patners.append(message.content[11:])
-          else:
-            await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 파트너목록에 추가할 유저의 이름을 적어주세요.```")
-        else:
-          await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.```")
-      if message.content[7:14] == "remove":
-        if message.author.id == "419810897058463754":
-          if message.content[14:]:
-            await client.send_message(message.channel, "```[스넷봇 파트너 시스템] " + message.content[14:] + "님을 파트너목록에서 지우셨습니다.```")
-            patners.remove(message.content[14:])
-          else:
-            await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 파트너목록에서 삭제할 유저의 이름을 적어주세요.```")
-        else:
-          await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 당신은 이 명령어를 사용할 권한이 없습니다.```")
       if message.content[7:13] == "apply":
         if message.content[13:]:
           if message.channel.is_private and message.author.id != "665768509707518033":
