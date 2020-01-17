@@ -24,7 +24,7 @@ async def on_message(message):
   else:
     if message.content[1:5] == "help":
       embed = discord.Embed(color=0x0028ff)
-      embed.add_field(name="[스넷봇 도움말 시스템]", value="=help :: 도움말 확인을 합니다.\n=info :: 나의 정보를 확인합니다.\n=contact :: 제작자에게 문의를 합니다.[봇 갠디코로만 가능]", inline=True)
+      embed.add_field(name="[스넷봇 도움말 시스템]", value="=help :: 도움말 확인을 합니다.\n=info :: 나의 정보를 확인합니다.\n=contact :: 제작자에게 문의를 합니다.[봇 갠디코로만 가능]\n안녕 스넷봇 :: 스넷봇에게 말을 걸어보세요!\n=server :: 스넷봇서버의 상태를 알려줍니다.", inline=True)
       await client.send_message(message.channel, embed=embed)
     if message.content[1:3] == "dm":
       if message.author.id == "419810897058463754":
