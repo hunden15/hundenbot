@@ -39,20 +39,6 @@ async def on_message(message):
       serverf = "Online"
       servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
-    if message.content[1:7] == "patner":
-      await client.send_message(message.channel, "```[스넷봇 파트너 시스템]\n=patner :: 파트너시스템 도움말을 확인\n=patner list :: 파트너를 확인합니다.\n=patner apply :: 파트너를 신청합니다.[디코봇 1대1로]```")
-    else:
-      if message.content[7:12] == "list":
-        patners = []
-        await client.send_message(message.channel, "```[스넷봇 파트너 시스템]" + "\n".join(patners)."```")
-      if message.content[7:13] == "apply":
-        if message.content[13:]:
-          if message.channel.is_private and message.author.id != "665768509707518033":
-            await client.send_message(discord.utils.get(client.get_all_members(), id="419810897058463754"), message.author.name + "(" + message.author.id + ") : " + message.content[13:])
-          else:
-            await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 해당 기능은 봇 1대1 채팅에서만 사용이 가능합니다.```")
-        else:
-          await client.send_message(message.channel, "```[스넷봇 파트너 시스템] 파트너 되면 어떻게할건지 적어주세요!```")
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 헌덴님!")
