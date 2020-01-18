@@ -48,10 +48,12 @@ async def on_message(message):
       await client.send_message(message.channel, "```[스넷봇 파트너 시스템]\n=patner :: 파트너 시스템 도움말 확인\n=patner add :: 파트너 목록에 추가\n=patner del :: 파트너 목록에서 삭제```")
     else:
       if message.content[8:12] == "list":
+        PNS = []
         await client.send_message(message.channel, "```[스넷봇 파트너 시스템]\n" + "\n".join(PNS)."```")
       if message.content[8:11] == "add":
         if message.author == "HUNDEN#1422":
           if message.content[12:]:
+            PNS = []
             PNS.append(message.content[12:])
             await client.send_message(message.channel, "```[스넷봇 파트너 시스템] " + message.author + "님이 " + message.content[12:] + "님을 파트너 목록에 추가하셨습니다.```")
           else:
@@ -61,6 +63,7 @@ async def on_message(message):
       if message.content[8:11] == "del":
         if message.author == "HUNDEN#1422":
           if message.content[12:]:
+            PNS = []
             PNS.remove(message.content[12:])
             await client.send_message(message.channel, "```[스넷봇 파트너 시스템] " + message.author + "님이 " + message.content[12:] + "님을 파트너 목록에서 삭제하셨습니다.```")
           else:
