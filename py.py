@@ -17,7 +17,6 @@ async def on_ready():
 @client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
-  PN = ["HUNDEN#1422"]
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
@@ -46,6 +45,7 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템] 서버와 연결도중 오류가 발생하였습니다.\n오류코드: `NEDI09`,`HEIO92`\n오류 코드를 뮨의하실 때 같이 보내시면 됩니다.```")
     if message.content[1:8] == "emotion":
+      PN = ['HUNDEN#1422']
       if PN == message.author:
         if message.content[9:]:
           await client.send_message(message.channel, "```[스넷봇 이모션 시스템]\n=emotion smile\n=emotion money```")
