@@ -21,7 +21,7 @@ async def on_message(message):
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
     if message.content[1:5] == "help":
-      await client.send_message(message.channel, "```[스넷봇 공식 시스템]\n=help :: 도움말 확인\n=contact :: 개발자에게 문의\n=server :: 서버 상태확인\n안녕 스넷봇 :: 스넷봇에게 인사\n\n공식 디스코드서버: https://discord.gg/QwGfSuj```")
+      await client.send_message(message.channel, "```[스넷봇 공식 시스템]\n=help :: 도움말 확인\n=contact :: 개발자에게 문의\n=server :: 서버 상태확인\n안녕 스넷봇 :: 스넷봇에게 인사\n=update :: 스넷봇 업데이트 기록을 확인합니다.\n\n공식 디스코드서버: https://discord.gg/QwGfSuj```")
     if message.content[1:3] == "dm":
       if message.author.id == "419810897058463754":
         member = discord.utils.get(client.get_all_members(), id=message.content[3:19])
@@ -39,11 +39,13 @@ async def on_message(message):
       servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
     if message.content[1:7] == "update":
-      server = "NotErrors"
+      server = "Errors"
       if server == "NotErrors":
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템]\n현재버전: v1.0.4-RELEASE\n(v1.0.4-RELEASE) :: 업데이트 명령어 추가, 오류 수정, 버그 수정\n(v1.0.4-BETA) :: 오류 수정\n(v1.0.3) :: 버그,오류 수정\n(v1.0.2) :: 서버 업데이트\n(v1.0.1) :: 문의명령어 추가\n(v1.0.0) :: 서버 2채널 추가\n(v0.9.9) :: 서버 1채널 추가\n(v0.9.8) :: 오류 수정\n(v0.9.7) :: 시스템 점검, 시스템 업데이트\n(v0.9.7-Alpha) :: 도움말 명령어 추가\n(v0.9.7.10) :: 버그 수정, 오류 수정```") 
       else:
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템] 서버와 연결도중 오류가 발생하였습니다.\n오류코드: `NEDI09`,`HEIO92`\n오류 코드를 뮨의하실 때 같이 보내시면 됩니다.```")
+    if message.content[1:8] == "emotion":
+      await client.send_message(message.channel, message.author)
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 헌덴님!")
