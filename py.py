@@ -17,7 +17,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
-  PN = ['HUNDEN#1422']
+  PN = ["HUNDEN#1422"]
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
