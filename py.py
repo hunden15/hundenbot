@@ -47,10 +47,11 @@ async def on_message(message):
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 " + message.author + "님!")
-    if message.author.id == "618778311291830292":
-      await client.send_message(message.channel, "안녕하세요! 스넷봇 부개발자 " + message.author + "님!")
     else:
-      await client.send_message(message.channel, "안녕하세요! " + message.author + "님!")
+      if message.author.id == "618778311291830292":
+        await client.send_message(message.channel, "안녕하세요! 스넷봇 부개발자 " + message.author + "님!")
+      else:
+        await client.send_message(message.channel, "안녕하세요! " + message.author + "님!")
       
       
       
