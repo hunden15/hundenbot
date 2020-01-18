@@ -45,7 +45,7 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템] 서버와 연결도중 오류가 발생하였습니다.\n오류코드: `NEDI09`,`HEIO92`\n오류 코드를 뮨의하실 때 같이 보내시면 됩니다.```")
   if message.content == "안녕 스넷봇":
-    if message.author == "HUNDEN#1422":
+    if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 " + message.author + "님!")
     if message.author.id == "618778311291830292":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 부개발자 " + message.author + "님!")
