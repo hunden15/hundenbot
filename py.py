@@ -54,10 +54,13 @@ async def on_message(message):
     if message.content[1:8] == "options":
       await client.send_message(message.channel, "```[스넷봇 옵션 시스템]\n서버1채널 :: " + serverf + "\n서버2채널 :: " + servert + "\n\n오류방지: On\n봇 자동최적화: On\n서버 자동최적화: Off\n서버 자동재부팅: Off\n봇 자동재부팅: On\n서버 외부아이피 차단: Off\n실시간 차단: Off```")
   if message.content == "안녕 스넷봇":
-    if message.author.id == "419810897058463754" and message.author.id == "618778311291830292":
-      await client.send_message(message.channel, "```[관리자 알림] 안녕하세요! 스넷봇 개발자 " + message.author + "님!```")
+    if message.author.id == "419810897058463754":
+      await client.send_message(message.channel, "```[개발자 알림] 안녕하세요! 스넷봇 총개발자 " + message.author.name + "님!```")
     else:
-      await client.send_message(message.channel, "안녕하세요! " + message.author + "님!")
+      if message.author.id == "618778311291830292":
+        await client.send_message(message.channel, "```[개발자 알림] 안녕하세요! 스넷봇 부개발자 " + message.author.name + "님!```")
+      else:
+        await client.send_message(message.channel, "안녕하세요! " + message.author.name + "님!")
       
       
       
