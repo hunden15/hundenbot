@@ -38,8 +38,16 @@ async def on_message(message):
       serverf = "Online"
       servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
+    if message.content[1:5] == "mote":
+      if message.channel.id == "668730681421070356":
+        author = message.guild.get_member(int(message.author.id))
+        role = discord.utils.get(message.guild.roles, name="시청자")
+        await author.add_roles(role)
+        await client.send_message(message.channel, "[스넷봇 시스템] " + message.author + "님이 성공적으로 인증하셨습니다.")
+      else:
+        await client.send_message(message.channel, "[스넷봇 시스템] 해당 채널에서는 해당 명령어를 사용하실 수 없습니다.")
     if message.content[1:7] == "update":
-      server = "Errors"
+      server = "NotErrors"
       if server == "NotErrors":
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템]\n현재버전: v1.0.4-RELEASE\n(v1.0.4-RELEASE) :: 업데이트 명령어 추가, 오류 수정, 버그 수정\n(v1.0.4-BETA) :: 오류 수정\n(v1.0.3) :: 버그,오류 수정\n(v1.0.2) :: 서버 업데이트\n(v1.0.1) :: 문의명령어 추가\n(v1.0.0) :: 서버 2채널 추가\n(v0.9.9) :: 서버 1채널 추가\n(v0.9.8) :: 오류 수정\n(v0.9.7) :: 시스템 점검, 시스템 업데이트\n(v0.9.7-Alpha) :: 도움말 명령어 추가\n(v0.9.7.10) :: 버그 수정, 오류 수정```") 
       else:
