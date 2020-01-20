@@ -17,6 +17,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
+  serverf = "Online"
+  servert = "Online"
   if message.content == "=":
     await client.send_message(message.channel, SN + " 기본 명령어: =help`")
   else:
@@ -35,8 +37,6 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, SN + " 제작자에게 문의 보낼 메세지를 적어주세요.`")
     if message.content[1:7] == "server":
-      serverf = "Online"
-      servert = "Online"
       await client.send_message(message.channel, SN + "\n서버1 :: " + serverf + "\n서버2 :: " + servert + "`")
     if message.content[1:5] == "mote":
       if message.channel.id == "668730681421070356":
