@@ -8,12 +8,11 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-  await client.change_presence(status=discord.Status.idle, activity=discord.Game('도움말: =help / 공지사항: =notice'))
   print("login")
   print(client.user.name)
   print(client.user.id)
   print("------------------")
-  await client.change_presence(game=discord.Game(name='', type=1))
+  await client.change_presence(game=discord.Game(name='=help / =options 사용해주세요.', type=1))
 
 @client.event
 async def on_message(message):
@@ -52,8 +51,8 @@ async def on_message(message):
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템]\n현재버전: v1.0.4-RELEASE\n(v1.0.4-RELEASE) :: 업데이트 명령어 추가, 오류 수정, 버그 수정\n(v1.0.4-BETA) :: 오류 수정\n(v1.0.3) :: 버그,오류 수정\n(v1.0.2) :: 서버 업데이트\n(v1.0.1) :: 문의명령어 추가\n(v1.0.0) :: 서버 2채널 추가\n(v0.9.9) :: 서버 1채널 추가\n(v0.9.8) :: 오류 수정\n(v0.9.7) :: 시스템 점검, 시스템 업데이트\n(v0.9.7-Alpha) :: 도움말 명령어 추가\n(v0.9.7.10) :: 버그 수정, 오류 수정```") 
       else:
         await client.send_message(message.channel, "```[스넷봇 업데이트 시스템] 서버와 연결도중 오류가 발생하였습니다.\n오류코드: `NEDI09`,`HEIO92`\n오류 코드를 뮨의하실 때 같이 보내시면 됩니다.```")
-    if message.content[1:7] == "notice":
-      await client.send_message(message.channel, "```[스넷봇 공지사항]\n많은 사용 부탁드립니다!\n오류 버그 수정됨!```")
+    if message.content[1:8] == "options":
+      await client.send_message(message.channel, "```[스넷봇 옵션 시스템]\n서버1채널 :: " + serverf + "\n서버2채널 :: " + servert + "\n\n오류방지: On\n봇 자동최적화: On\n서버 자동최적화: Off\n서버 자동재부팅: Off\n봇 자동재부팅: On\n서버 외부아이피 차단: Off\n실시간 차단: Off```")
   if message.content == "안녕 스넷봇":
     if message.author.id == "419810897058463754":
       await client.send_message(message.channel, "안녕하세요! 스넷봇 총개발자 " + message.author + "님!")
