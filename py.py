@@ -43,7 +43,6 @@ async def on_message(message):
         author = message.guild.get_member(int(message.author.id))
         role = discord.utils.get(message.guild.roles, name="시청자")
         await author.add_roles(role)
-        await client.send_message(message.channel, "[스넷봇 시스템] " + message.author + "님이 성공적으로 인증하셨습니다.")
       else:
         await client.send_message(message.channel, "[스넷봇 시스템] 해당 채널에서는 해당 명령어를 사용하실 수 없습니다.")
     if message.content[1:7] == "update":
