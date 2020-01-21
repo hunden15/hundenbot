@@ -15,6 +15,11 @@ async def on_ready():
   await client.change_presence(game=discord.Game(name='=help / =options 사용해주세요.', type=1))
 
 @client.event
+async def on_member_join(member):
+  channel = discord.utils.get(member.guild.channels, name="welcome")
+  await channel.send(f"[member.mention]님 환영합니다!")
+
+@client.event
 async def on_message(message):
   SN = "`[스넷봇 시스템]"
   serverf = "Online"
